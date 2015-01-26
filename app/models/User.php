@@ -59,7 +59,7 @@ class User extends ActiveRecord implements IdentityInterface
             // email has to be unique
             ['email', 'unique'],
 
-            [['email', 'password'], 'required'],
+            [['email', 'password_hash'], 'required'],
 
         ];
     }
