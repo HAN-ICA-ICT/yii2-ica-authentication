@@ -91,16 +91,18 @@ class UserController extends Controller
             throw new Exception('No model supplied.');
         }
 
-        if(null === Yii::$app->request->post())
+        if(null === Yii::$app->request->post() || ! isset(Yii::$app->request->post()['User']))
         {
             return false;
         }
 
         $canSave = true;
+        // First check if we want to change the password and, if so, if the
+        // new password is ok.
         $newPassword = null;
-        if(isset(Yii::$app->request->post()['User']['password']))
+        if(isset(Yii::$app->request->post()['User']['password']) && strlen(Yii::$app->request->post()['User']['password']))
         {
-            $passwordConfirm = '';
+            $passwordConfirm = Yii::$app->request->post()['User']['password'];
             if(isset(Yii::$app->request->post()['password_confirm']))
             {
                 $passwordConfirm = Yii::$app->request->post()['password_confirm'];
@@ -110,25 +112,16 @@ class UserController extends Controller
                 $model->addError('password', Yii::t('ica_auth', 'Passwords don\'t match.'));
                 $canSave = false;
             }
+            // The new password is ok. Allow updating it.
             else
             {
-                $newPassword = Yii::$app->request->post()['User']['password'];
+                $newPassword = $passwordConfirm;
             }
         }
 
         if( ! $canSave )
         {
             return false;
-        }
-
-        if(! isset(Yii::$app->request->post()['User']))
-        {
-            if(null === $newPassword)
-            {
-                return false;
-            }
-            $model->setPassword($newPassword);
-            return $model->save(true, ['password_hash']);
         }
 
         if(null !== $newPassword)
@@ -170,7 +163,7 @@ class UserController extends Controller
                 }
             }
         }
-        
+
         return true;
     }
 
