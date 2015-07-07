@@ -4,9 +4,9 @@
  * after all the necessary migrations have been performed.
  */
 
-namespace app\commands;
+namespace icalab\auth\commands;
 
-use app\models\User;
+use icalab\auth\models\User;
 use yii\rbac\DbManager;
 use yii\base\InvalidConfigException;
 use yii\base\ErrorException;

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\controllers;
+namespace icalab\auth\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use app\models\User;
+use icalab\auth\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 

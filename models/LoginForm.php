@@ -6,7 +6,7 @@
  * login form to work correctly with the ICA Authentication mechanism.      *
  *                                                                          *
  ***************************************************************************/
-namespace app\models;
+namespace icalab\auth\models;
 
 use Yii;
 use yii\base\Model;

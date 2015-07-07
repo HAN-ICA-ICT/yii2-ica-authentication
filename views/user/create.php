@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\User */
+/* @var $model icalab\auth\models\User */
 
 $this->title = Yii::t('ica_auth', 'Create new user.');
 

@@ -1,12 +1,12 @@
 <?php
-namespace app\models;
+namespace icalab\auth\models;
 
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use app\models\User;
+use icalab\auth\models\User;
 
 /**
  * ICA Authentication ResetPassword model.

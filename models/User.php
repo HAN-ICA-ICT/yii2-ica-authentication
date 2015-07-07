@@ -1,5 +1,5 @@
 <?php
-namespace app\models;
+namespace icalab\auth\models;
 
 use Yii;
 use yii\base\NotSupportedException;

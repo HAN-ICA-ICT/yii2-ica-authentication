@@ -14,13 +14,13 @@
  * you can use the provided generate method that generates a request token
  * and sends out an email message.
  */
-namespace app\controllers;
+namespace icalab\auth\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use app\models\User;
-use app\models\ResetPassword;
+use icalab\auth\models\User;
+use icalab\auth\models\ResetPassword;
 use yii\web\NotFoundHttpException;
 use yii\web\BadRequestHttpException;
 

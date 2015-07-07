@@ -1,0 +1,14 @@
+{
+    "name": "icalab/yii2-ica-authentication",
+    "type": "yii2-extension",
+    "description" : "Extension for authenticating and managing users, built on top of the default YII2 RBAC mechanism.",
+    "keywords": ["yii2", "extension", "widget", "rbac", "authentication"],
+    "homepage": "https://github.com/icalab/yii2-ica-authentication",
+    "type": "yii2-extension",
+    "extra" : {
+        "bootstrap" : "icalab\\auth\\Bootstrap"
+    },
+    "autoload": {
+        "psr-4": {"icalab\\auth\\": ""}
+    }
+}

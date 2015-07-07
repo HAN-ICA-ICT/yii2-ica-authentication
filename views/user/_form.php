@@ -1,6 +1,6 @@
 <?php
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\User */
+/* @var $model icalab\auth\models\User */
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\rbac\ManagerInterface;
