@@ -9,13 +9,22 @@ This authentication mechanism extends the default Yii 2 RBAC mechanism (see: htt
 and more specifically the DbManager (see http://www.yiiframework.com/doc-2.0/yii-rbac-dbmanager.html). Configure these and don't forget
 to initialize the database using the command
 
-    yii migrate --migrationPath=@yii/rbac/migrations/
+```
+php yii migrate --migrationPath=@yii/rbac/migrations/
+```
 
 Note you will also need to add authentication config to your console config.
 
 Next, setup i18n, both in your console config and in your web config.
 
-Once you've done all that, add the Yii 2 ICA Authentication files to your project. Then run the migration and the command ica-init-auth.
+Once you've done all that, run the migration:
+
+```
+php yii migrate --migrationPath=@icalab/auth/migrations
+```
+
+
+add the Yii 2 ICA Authentication files to your project. Then run the migration and the command ica-init-auth.
 This will set up the user table and the resetpassword table. It will also create an admin user with admin@admin.com as the email / login
 and "admin" as the password and the roles that are required for editing and updating other users.
 
