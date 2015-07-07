@@ -95,7 +95,7 @@ class PasswordResetController extends Controller
         $request->generateResetToken();
         $request->save();
 
-        return $this->render('request', ['request' => $request]);
+        return $this->render('@icalab/auth/views/password-reset/request', ['request' => $request]);
     }
 
     /**
@@ -145,7 +145,7 @@ class PasswordResetController extends Controller
         if($user->save(true, array('password_hash')))
         {
             $request->delete();
-            return $this->render('success');
+            return $this->render('@icalab/auth/views/password-reset/success');
         }
 
         Yii::$app->getSession()->setFlash('error',

@@ -38,7 +38,7 @@ class UserController extends Controller
                     'pageSize' => 20,
                 ]
             ]);
-        return $this->render('index', ['dataProvider' => $dataProvider]);
+        return $this->render('@icalab/auth/views/user/index', ['dataProvider' => $dataProvider]);
     }
 
     /**
@@ -60,7 +60,7 @@ class UserController extends Controller
 
         }
 
-        return $this->render('create', ['model' => $model]);
+        return $this->render('@icalab/auth/views/user/create', ['model' => $model]);
     }
 
     public function actionUpdate($id)
@@ -76,7 +76,7 @@ class UserController extends Controller
             Yii::$app->session->setFlash('userUpdated');
         }
         
-        return $this->render('update', ['model' => $model]);
+        return $this->render('@icalab/auth/views/user/update', ['model' => $model]);
     }
 
     /**
