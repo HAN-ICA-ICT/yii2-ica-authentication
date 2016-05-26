@@ -38,6 +38,8 @@ echo $form->field($model, 'password')->input('password');
     </div>
 </div>
 
+<?= $form->field($model, 'is_active')->checkbox() ?>
+
 <div class="form-group field-auth_items">
 <label class="control-label col-sm-3"><?= Yii::t('ica_auth', 'Roles'); ?></label>
 <?php

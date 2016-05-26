@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Active' => 'Actief',
     'Confirm password' => 'Bevestigen',
     'Create' => 'Aanmaken',
     'Create new user.' => 'Nieuwe gebruiker',

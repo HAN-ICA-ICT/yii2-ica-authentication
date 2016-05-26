@@ -134,8 +134,12 @@ class UserController extends Controller
         }
 
         $model->email = Yii::$app->request->post()['User']['email'];
+        if(isset(Yii::$app->request->post()['User']['is_active']))
+        {
+            $model->is_active = Yii::$app->request->post()['User']['is_active'];
+        }
         $model->auth_key =  $model->getAuthKey();
-        if(! $model->save(true, ['email', 'password_hash', 'auth_key', 'created_at', 'updated_at']))
+        if(! $model->save(true, ['email', 'password_hash', 'is_active', 'auth_key', 'created_at', 'updated_at']))
         {
             return false;
         }

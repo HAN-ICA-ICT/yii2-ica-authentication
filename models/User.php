@@ -20,6 +20,7 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property string $password write-only password
  * @property string $username
+ * @property boolean $is_active
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -50,8 +51,12 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            // The status field exists for compatibility reasons only. Using
+            // is_active makes much more sense.
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+
+            [['is_active'], 'safe'],
 
             // email has to be a valid email address
             ['email', 'email'],
@@ -73,6 +78,7 @@ class User extends ActiveRecord implements IdentityInterface
             'password' => Yii::t('ica_auth', 'Password'),
             'email' => Yii::t('ica_auth', 'Email'),
             'roles' => Yii::t('ica_auth', 'Roles'),
+            'is_active' => Yii::t('ica_auth', 'Active'),
         ];
     }
 
@@ -81,7 +87,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE, 'is_active' => TRUE]);
     }
 
     /**
